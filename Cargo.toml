@@ -1,0 +1,35 @@
+[package]
+name = "winternitz"
+version = "0.1.0-pre"
+authors = ["Noah Vesely <fowlslegs@riseup.net>"]
+description = "An implementation of the WOTS-T one-time signature scheme."
+license = "LGPLv3"
+documentation = "https://nvesely.github.io/winternitz/winternitz/index.html"
+repository = "https://github.com/nvesely/winternitz"
+keywords = ["crypto", "cryptography", "winternitz", "signature-scheme",
+"one-time signature-scheme", "otss", "wots", "wots+", "wots-t"]
+categories = ["cryptography"]
+readme = "README.md"
+exclude = [
+    "**/.gitignore",
+    ".travis.yml",
+]
+
+[badges]
+travis-ci = { repository = "nvesely/winternitz", branch = "master"}
+
+[dependencies]
+libc = { version = "^0.2.40", default-features = false }
+libsodium-sys = { version = "^0.0.16", default-features = false }
+sodiumoxide = { version = "^0.0.16", default-features = false }
+subtle = { version = "^0.6", features = ["nightly"], default-features = false }
+
+[package.metadata.release]
+sign-commit = true
+upload-doc = true
+doc-branch = "gh-pages"
+pre-release-commit-message = "Release version {{version}}."
+pro-release-commit-message = "Start next development iteration {{version}}."
+tag-message = "Release version {{version}}."
+doc-commit-message = "Update documentation."
+dev-version-ext = "pre"

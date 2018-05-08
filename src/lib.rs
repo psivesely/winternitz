@@ -1,5 +1,5 @@
-//N*L - g! *winternitz* implements one-time hash-based signatures using the
-//! W-OTS+ signature scheme.
+//! *winternitz* implements one-time hash-based signatures using the
+//! WOTS-T signature scheme.
 
 // `#[derive(...)]` uses `#[allow(unused_qualifications)]` internally.
 #![deny(unused_qualifications)]

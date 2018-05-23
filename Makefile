@@ -26,7 +26,7 @@ install-rustfmt:
 run-lints: run-rustfmt run-clippy
 
 run-clippy:
-	cargo +$(NIGHTLY_VERSION) clippy --all --tests --all-features -- -A clippy_pedantic
+	cargo +$(NIGHTLY_VERSION) clippy --all --tests --all-features -- -D clippy_pedantic
 
 run-rustfmt:
 	cargo +$(NIGHTLY_VERSION) fmt --all

@@ -1,0 +1,30 @@
+language: rust
+cache: cargo
+env:
+  - NIGHTLY_VERSION="$(make print-nightly-version)"
+rust:
+  - nightly
+
+matrix:
+  include:
+    - env: NAME='rustfmt'
+      rust: "${NIGHTLY_VERSION}"
+      before_script: rustup component add rustfmt-preview
+      script: cargo fmt --all -- --write-mode=diff
+    - env: NAME='clippy'
+      rust: "${NIGHTLY_VERSION}"
+      before_script: | cargo install clippy --version \
+                         "$(make print-clippy-version)" \
+                         || echo "clippy already installed"
+      script: make run-clippy
+
+script:
+  - cargo build --verbose --all-features
+  - cargo test --verbose --all-features
+  - cargo doc --verbose --all-features
+
+branches:
+  only:
+    - staging # bors r+
+    - trying  # bors try
+    - master

@@ -13,6 +13,8 @@ readme = "README.md"
 exclude = [
     "**/.gitignore",
     ".travis.yml",
+    ".bors.toml",
+    "Makefile",
 ]
 
 [badges]

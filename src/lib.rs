@@ -171,7 +171,8 @@ impl PubKey {
 
 impl ConstantTimeEq for PubKey {
     fn ct_eq(&self, other: &Self) -> Choice {
-        self.chain_ends.ct_eq(&other.chain_ends) & self.ots_addr.ct_eq(&other.ots_addr)
+        self.chain_ends.ct_eq(&other.chain_ends)
+            & self.ots_addr.ct_eq(&other.ots_addr)
             & self.pub_seed.ct_eq(&other.pub_seed)
     }
 }

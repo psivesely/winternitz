@@ -13,9 +13,9 @@ matrix:
       script: cargo fmt --all -- --write-mode=diff
     - env: NAME='clippy'
       rust: "${NIGHTLY_VERSION}"
-      before_script: | cargo install clippy --version \
-                         "$(make print-clippy-version)" \
-                         || echo "clippy already installed"
+      before_script:
+        -| cargo install clippy --version "$(make print-clippy-version)" \
+             || echo "clippy already installed"
       script: make run-clippy
 
 script:

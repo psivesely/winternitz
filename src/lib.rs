@@ -191,7 +191,7 @@ fn gen_chain(
 
     for i in 1..(iter_ct + 1) {
         let key = prg(pub_seed, &set_hash_addr(&chain_addr, 2 * (j + i)));
-        let bitmask = prg(pub_seed, &set_hash_addr(&chain_addr, 2 * (j + 1) + 1));
+        let bitmask = prg(pub_seed, &set_hash_addr(&chain_addr, 2 * (j + i) + 1));
         for i in 0..N {
             xor[i] = out[i] ^ bitmask[i];
         }
